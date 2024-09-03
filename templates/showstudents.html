@@ -1,0 +1,50 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Students Details</h1>
+  <table class="table col-6 table-hover table-dark table-sm"> 
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Mobile</th>
+        <th>Course</th>
+        <th>Enq Date</th>
+        <th>Remarks</th>
+      </tr>
+      {%for i in st%}
+        <tbody>
+          <tr>
+            <form action="updatestudent" method="post">
+              {%csrf_token%}
+                <td>{{i.user.id}}<input type='hidden'class="form-control bg-dark text-white" name='uid' value="{{i.user.id}}"/></td>
+                <td>{{i.name}} {{i.user.last_name}}</td>
+                <td>{{i.user.email}}</td>
+                <td><input type="text" class="form-control bg-dark text-white"  name="address" value="{{i.address}}" placeholder="Address"></td>
+                <td><input type="text" class="form-control bg-dark text-white"  name="mob" value="{{i.mob}}" placeholder="Mobile Number"></td>
+                <td><select class="form-select-lg mb-3 bg-dark text-white" name="course" aria-label=".form-select-lg example">
+                  <option selected>{{i.course}}</option>
+                  <option value="Java Full Stack">Java Full Stack</option>
+                  <option value="Python Full Stack">Python Full Stack</option>
+                  <option value="Python Core and Advance">Python Core and Advance</option>
+                  <option value="Mean">Mean</option>
+                  <option value="Mern">Mern</option>
+                  <option value="Block Chain">Block Chain</option>
+                  <option value="Data Structure and Algorithum">Data Structure and Algorithum</option>
+                  <option value="Django and Rest">Django and Rest</option>
+                  <option value="React and Redux">React and Redux</option>
+                  <option value="Angular">Angular</option>
+                  <option value="C and C++</">C and C++</option>
+                </select>
+                </td>
+                <td>{{i.edt}}</td>
+                <td><textarea class="form-control bg-dark text-white" rows="3" name="remarks">{{i.remarks}}</textarea></td>
+                <td><button class="btn btn-warning">Update</button></td>
+            </form>
+          </tr>
+      </tbody>    
+      {%endfor%}
+    </thead>
+  </table>
+{%endblock%}

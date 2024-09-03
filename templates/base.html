@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="bg-warning ">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-dark"><h2 class=" text-white">Programmers Point</h2></nav>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 bg-white" style="height:900px; margin-top:115px">
+                <table class="table">
+                    <thead>
+                    <tr><th><a href="/" class="text-dark lead" style="display:block; text-align:center; text-decoration:none;">Add Student</a></th></tr>
+                    <tr><th><a href="showstudents" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Show Student</a></th></tr>
+                    <tr><th><a href="searchstudents" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Search Students</a></th></tr>
+                    <tr><th><a href="joinstudents" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Join Students</a></th></tr>
+                    <tr><th><a href="showjoinedstudent" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;"> Show Join Students</a></th></tr>
+                    <tr><th><a href="searchjoinedstudents" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;"> Search Join Students</a></th></tr>
+                    <tr><th><a href="addbatch" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;"> Add Batches</a></th></tr>
+                    <tr><th><a href="showbatches" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Show Batches</a></th></tr>
+                    <tr><th><a href="searchbatch" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Search Batches</a></th></tr>
+                    <tr><th><a href="addtrainer" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Add Trainer</a></th></tr>
+                    <tr><th><a href="showtrainers" class="text-dark lead" style="display:block; text-align:center;text-decoration:none;">Show Trainers</a></th></tr>
+                    </thead>
+                </table> 
+            </div>
+            <div class="col-10 bg-warrning" style="height:650px; margin-top:60px">
+                {%block content%}
+
+                {%endblock%}
+            </div>
+        </div>
+    </div>
+          
+</body>
+</html>

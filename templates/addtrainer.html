@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Add Trainer</h1>
+<div class="card  h-95 mx-auto" style="width: 40rem;"><br>
+    <form action="addtrainer" method="POST">
+        {%csrf_token%}
+        <div class="row mb-3 container">
+          <label for="tname" class="col-sm-3 col-form-label">Trainer Name</label>
+          <div class="col-6">
+            <input type="text" class="form-control" name="tname" placeholder="Trainer Name">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+            <label for="languages" class="col-sm-3 col-form-label">Languages</label>
+            <div class="col-6">
+              <input type="text" class="form-control" name="languages"  placeholder="Add Languages">
+            </div>
+          </div>
+          <div class="row mb-3 container">
+            <label for="sal" class="col-sm-3 col-form-label">Salary</label>
+            <div class="col-6">
+              <input type="number" class="form-control" name="sal"  placeholder="Enter Amount">
+            </div>
+          </div>
+          <div class="row mb-3 container">
+            <label for="joined_dt" class="text-dark col-sm-3 col-form-label">Joining Date</label>
+            <input class="form-control col-6" type="date" name="joined_dt" placeholder="Enter Your Joining Date" />
+        </div>
+        <div class="row mb-3 container">
+            <label for="timinings" class="text-dark col-sm-3 col-form-label">Timinigs</label>
+            <input class="form-control col-6" type="text" name="timinings" placeholder="Enter Timing" />
+        </div>
+        <div class="form-group text-center">
+            <a href="addtrainer"><button class="btn btn-dark col-3 ">AddTrainer</button></a>
+        </div> 
+    </form>
+</div>
+{%endblock%}

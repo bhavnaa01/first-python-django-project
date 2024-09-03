@@ -1,0 +1,56 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Show Batch Detailes</h1>
+  <table class="table col-6 table-hover table-dark table-md"> 
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Student</th>
+        <th>Batch Name</th>
+        <th>Start Date</th>
+        <th>Trainer</th>
+      </tr>
+      {%for i in bt%}
+      <tbody>
+        <tr>
+          <form action="updatebatch" method="post">
+              {%csrf_token%}
+              <td>{{i.id}}<input type='hidden'class="form-control bg-dark text-white" name='id' value="{{i.id}}"/></td>
+              <td>
+                <select class="form-select col-6 bg-dark text-white" name="student" aria-label=".form-select-lg example" multiple>
+                  {%for j in js%}
+                  {%if j in i.student.all%}
+                  <option value="{{j.id}}" selected>{{j.id}}</option>
+                  {%else%}
+                  <option value="{{j.id}}">{{j.student.name}}</option>
+                  {%endif%}
+                  {%endfor%} 
+                </select>   
+                </td>
+              <td>{{i.start_dt}}</td>
+              <td><input type="text" class="form-control bg-dark text-white" name="bname" value="{{i.bname}}" placeholder="Enter Batch Name"/></td>
+              <td>
+                <select class="form-select-lg mb-3 bg-dark text-white" name="trainer" aria-label=".form-select-lg example">
+                  {%for j in tr%}
+                  {%if i.trainer in j.tname%}
+                      <option value="{{j.tname}}" selected>{{i.trainer}}</option>
+                  {%else%}
+                      <option value="{{j.tname}}" >{{j.tname}}</option>
+                  {%endif%}
+                  {%endfor%}    
+                </select>
+              </td>  
+              <td><button class="btn btn-warning">Update</button></td>
+              <td><button class="btn btn-warning"><a  class="text-dark" href="deletebatches?id={{i.id}}">Delete</a></button></td>
+          </form>
+        </tr>
+      </tbody>
+      {%endfor%}
+{%for message in messages%}
+{%if message.tags%}
+<script>
+    window.alert('{{message}}');
+</script>
+{%endif%}
+{%endfor%}
+{%endblock%}

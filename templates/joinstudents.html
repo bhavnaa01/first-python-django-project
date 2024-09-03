@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Join Student</h1>
+<div class="card  h-95 mx-auto" style="width: 40rem;"><br>
+    <form action="" method="POST">
+      {%csrf_token%}
+    <div class="row mb-3 container">
+      <label for="student" class="text-dark col-sm-3 col-form-label">Student Name</label>
+        <select class="form-select col-6" name="student">
+          <option value="">Select Student</option>
+            {%for i in st%}
+            <option value="{{i.user_id}}">{{i.name}} {{i.course}} {{i.edt}}</option>
+            {%endfor%}
+        </select>
+    </div>
+    <div class="row mb-3 container">
+        <label for="joined_dt" class="text-dark col-sm-3 col-form-label">Joining Date</label>
+        <input class="form-control col-6" type="date" name="joined_dt" placeholder="Enter Your Joining Date" />
+    </div>
+    <div class="row mb-3 container">
+       <label for="duration" class="col-sm-3 col-form-label">Course Duration</label>
+       <div class="col-6">
+           <input type="text" class="form-control" name="duration" placeholder="Duration of course">
+        </div>
+    </div>
+    <div class="row mb-3 container">
+        <label for="total" class="col-sm-3 col-form-label">Total Fee</label>
+        <div class="col-6">
+          <input type="text" class="form-control" name="total"  placeholder="Fee Amount">
+        </div>
+    </div>
+    <div class="row mb-3 container">
+        <label for="first_ins" class="col-sm-3 col-form-label">First Inst</label>
+        <div class="col-6">
+          <input type="text" class="form-control" name="first_ins" placeholder="Enter Amount">
+        </div>
+    </div>
+    <div class="row mb-3 container">
+        <label for="first_dt" class="text-dark col-sm-3 col-form-label">First Inst Date</label>
+        <input class="form-control col-6" type="date" name="first_dt" placeholder="Enter date"/>
+        </div>
+    <div class="row mb-3 container">
+        <label for="second_ins" class="col-sm-3 col-form-label">Second Inst</label>
+        <div class="col-6">
+          <input type="text" class="form-control" name="second_ins"  placeholder="Enter Amount">
+        </div>
+    </div>
+      <div class="row mb-3 container">
+        <label for="second_dt" class="text-dark col-sm-3 col-form-label">Second Inst Date</label>
+        <input class="form-control col-6" type="date" name="second_dt" placeholder="Enter date"/>
+      </div>
+    <div class="row mb-3 container">
+        <label for="dues" class="col-sm-3 col-form-label">Due Fee</label>
+        <div class="col-6">
+          <input type="text" class="form-control" name="dues" placeholder="Enter Due Amount">
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <a hreg="showjoinedstudent"><button class="btn btn-dark col-3 ">JoinStudent</button></a>
+    </div> 
+    </form>
+</div>
+{%endblock%}

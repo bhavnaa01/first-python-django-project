@@ -1,0 +1,81 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Add New Student</h1>
+<div class="card  h-95 mx-auto" style="width: 40rem;"><br>
+    <form action="addstudent" method="POST">
+      {%csrf_token%}
+        <div class="row mb-3 container">
+          <label for="fname" class="col-sm-3 col-form-label">First Name</label>
+          <div class="col-6">
+            <input type="text" class="form-control" name="fname"  placeholder="First Name">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+          <label for="lname" class="col-sm-3 col-form-label">Last Name</label>
+          <div class="col-6">
+            <input type="text" class="form-control" name="lname" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+          <label for="email" class="col-sm-3 col-form-label">Email Address</label>
+          <div class="col-6">
+            <input type="text" class="form-control" name="email" placeholder="Email Address">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+          <label for="password" class="col-sm-3 col-form-label">Password</label>
+          <div class="col-6">
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+          <label for="mob" class="col-sm-3 col-form-label">Mobile Number</label>
+          <div class="col-6">
+            <input type="text" class="form-control"  name="mob" placeholder="Mobile Number">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+          <label for="address" class="col-sm-3 col-form-label">Address</label>
+          <div class="col-6">
+            <input type="text" class="form-control" name="address" placeholder="Address">
+          </div>
+        </div>
+        <div class="row mb-3 container">
+          <label for="course" class="text-dark col-sm-3 col-form-label">Select Course</label>
+        <select class="form-select col-6" name="course">
+            <option selected>Select Option</option>
+            <option>Java Full Stack</option>
+            <option>Python Full Stack</option>
+            <option>Java Core and Advance</option>
+            <option>Python Core and Advance</option>
+            <option>Mean</option>
+            <option>Mern</option>
+            <option>Block Chain</option>
+            <option>Data Structure and Algorithum</option>
+            <option>Django and Rest</option>
+            <option>React and Redux</option>
+            <option>Angular</option>
+            <option>C and C++</option>
+          </select>
+        </div>
+      <div class="row mb-3 container">
+        <label for="edt"class="text-dark col-sm-3 col-form-label">Enquiry Date</label>
+        <input class="form-control col-6" type="date" name="edt" placeholder="Enter Your Joining Date"ss/>
+      </div>
+      <div class="row mb-3 container">
+        <label class="form-label text-dark col-sm-3 col-form-label" for="textAreaExample2">Remark</label>
+        <textarea class="form-control col-6" name="remarks" id="textAreaExample2" rows="2"></textarea>
+      </div>
+      <div class="form-group text-center">
+        <a href="addstudent"><button class="btn btn-dark col-3 ">AddStudent</button></a>
+    </div> 
+    </form>
+</div>
+{%for message in messages%}
+{%if message.tags%}
+<script>
+  window.alert('{{message}}');
+</script>
+{%endif%}
+{%endfor%}
+{%endblock%}

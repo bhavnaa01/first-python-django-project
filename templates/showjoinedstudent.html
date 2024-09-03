@@ -1,0 +1,45 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Joined Students Details</h1>
+  <table class="table col-6 table-hover table-dark table-md"> 
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Student</th>
+        <th>Joined_dt</th>
+        <th>Total</th>
+        <th>First_ins</th>
+        <th>First_dt</th>
+        <th>Second_ins</th>
+        <th>Second_dt</th>
+        <th>Duration</th>
+        <th>Dues</th>
+      </tr>
+      {%for i in joined%}
+      <tbody>
+        <tr>
+          <form action="updatejoinedstudent" method="post">
+            {%csrf_token%}
+              <td>{{i.id}}<input type='hidden'class="form-control bg-dark text-white" name='id' value="{{i.id}}"/></td>
+              <td>{{i.student.name}}</td>
+              <td>{{i.joined_dt}}</td>
+              <td>{{i.total}}</td>
+              <td>{{i.first_ins}}</td>
+              <td>{{i.first_dt}}</td>
+              <td><input type="number" class="form-control bg-dark text-white" name="second_ins" value="{{i.second_ins}}" placeholder="Enter Amount"/></td>
+              <td><input type="date" class="form-control bg-dark text-white" name="second_dt" value="{{i}}" placeholder="Enter Date"/></td>
+              <td>{{i.duration}}</td>
+              <td><input type="number" class="form-control bg-dark text-white" name="dues" value="{{i.dues}}" placeholder="Enter Amount"/></td>
+              <td><button class="btn btn-warning">Update</button></td>
+          </form>
+        </tr>
+      </tbody>
+      {%endfor%}
+{%for message in messages%}
+{%if message.tags%}
+  <script>
+     window.alert('{{message}}');
+  </script>
+{%endif%}
+{%endfor%}
+{%endblock%}

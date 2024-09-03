@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1 align="center">Show Trainer Detailes</h1>
+<table class="table col-6 table-hover table-dark table-md">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Languages</th>
+            <th>Salary</th>
+            <th>Join Date</th>
+            <th>Timinigs</th>
+        </tr>
+        {%for i in tr%}
+        <tbody>
+            <tr>
+                <form action="updatetrainer" method="POST">
+                    {%csrf_token%}
+                    <td>{{i.id}}<input type='hidden'class="form-control bg-dark text-white" name='id' value="{{i.id}}"/></td>
+                    <td>{{i.tname}}</td>
+                    <td><input type="text" class="form-control bg-dark text-white" name='languages' value="{{i.languages}}" placeholder="languages"/></td>
+                    <td><input type="number" class="form-control bg-dark text-white" name='sal' value="{{i.sal}}" placeholder="Salary"/></td>
+                    <td>{{i.joined_dt}}</td>
+                    <td><input type="text" class="form-control bg-dark text-white" name='timinings' value="{{i.timinings}}" placeholder="Timinigs"/></td>
+                    <td><button class="btn btn-warning">Update</button></td>
+                    <td><button class="btn btn-warning"><a href="deletetrainer?id={{i.id}}" class="text-dark">Delete</a></button></td>
+                </form>
+            </tr>
+        </tbody>
+        {%endfor%}
+    </thead
+</table>
+{%for message in messages%}
+{%if message.tags%}
+  <script>
+     window.alert('{{message}}');
+  </script>
+{%endif%}
+{%endfor%}
+{%endblock%}
